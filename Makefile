@@ -1,4 +1,4 @@
-PROG=hep_nestanak
+PROG=hep-nestanak
 PREFIX=/usr/local
 BINDIR=${PREFIX}/bin
 
