@@ -6,7 +6,7 @@ Podaci su dobiveni parsiranjem http://www.hep.hr/ods/dp/nestanak.aspx
 Pozivanje scripte iz crona omogućava se jednostavno obaviještavanje o nestancima
 električne energije za koje smo zainteresirani.
 
-Usage: $0 <ELEKTRA_PODRUCJE> <ELEKTRA_POGON> <REGEXP>
+Usage: hep-nestanak <ELEKTRA_PODRUCJE> <ELEKTRA_POGON> <REGEXP>
 
 ELEKTRA_PODRUCJE: distribucijsko podrucje (grad) iz dropdown liste (HTML select value) na http://www.hep.hr/ods/dp/nestanak.aspx
  (npr. "rijeka" za "Elektroprimorje Rijeka", "zagreb" za "Elektra Zagreb" itd)
