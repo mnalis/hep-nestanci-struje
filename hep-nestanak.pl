@@ -2,6 +2,7 @@
 # Matija Nalis <mnalis-git@voyager.hr> 2015-10-12, GPLv3+
 # 
 # pretrazuje online bazu predvidjenih nestanaka struje i matcha zadani regexp
+# jer RSS na stranicama prikazuje samo nestanke struje za danas :(
 #
 
 use strict;
@@ -13,7 +14,7 @@ use HTML::TreeBuilder::XPath;
 
 my $ELEKTRA_DP = 'zagreb';
 my $ELEKTRA_LOC = 'ZG';
-my $REGEXP = qr/trokut/i;	# FIXME try i czs Tièarièka
+my $REGEXP = qr/Ti.+ari.+ka/i;	# FIXME try i czs Tièarièka
 
 # no user configurable parts below
 

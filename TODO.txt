@@ -1,0 +1,5 @@
+- matchiranje nasih slova (šđčćž) ne radi (UTF-8 vs. HTML encoded), potrebno koristiti ".+" kludge
+- argumenti su hardcoded, staviti da se specificiraju iz cmdline 
+- staviti da se ne ispisuje nista ako nista nije matchirano
+- HTML/text odabir ispisa?
+
