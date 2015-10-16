@@ -29,7 +29,7 @@ my $mech = WWW::Mechanize->new();
 
 $mech->get( 'http://www.hep.hr/ods/dp/nestanak.aspx?dp=' . $ELEKTRA_DP );
 
-say '<ul>';
+my $ret='';
 foreach my $dan (1..6) {
     my $res = $mech->submit_form(
         form_id => 'frm',
@@ -49,8 +49,8 @@ foreach my $dan (1..6) {
     foreach my $node (@sve) {
         my $lokacije_raw = $node->as_HTML;
         if ($lokacije_raw =~ m{$REGEXP}i) {
-            say "$lokacije_raw <br> ($datum)";
+            $ret .= "$lokacije_raw ($datum)<br>\n";
         }
     }
 }
-say '</ul>';
+say "<ul>$ret</ul>" if $ret;

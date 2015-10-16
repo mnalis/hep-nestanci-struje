@@ -1,4 +1,3 @@
 - matchiranje nasih slova (šđčćž) ne radi (UTF-8 vs. HTML encoded), potrebno koristiti ".+" kludge
-- staviti da se ne ispisuje nista ako nista nije matchirano
 - HTML/text odabir ispisa?
 
