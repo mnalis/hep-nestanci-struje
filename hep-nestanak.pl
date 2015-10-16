@@ -4,6 +4,7 @@
 # pretrazuje online bazu predvidjenih nestanaka struje i matcha zadani regexp
 # jer RSS na stranicama prikazuje samo nestanke struje za danas :(
 #
+# Usage: hep-nestanak.pl zagreb ZG 'Ti.+ari.+ka'
 
 use strict;
 use warnings;
@@ -12,9 +13,15 @@ use feature 'say';
 use WWW::Mechanize;
 use HTML::TreeBuilder::XPath;
 
-my $ELEKTRA_DP = 'zagreb';
-my $ELEKTRA_LOC = 'ZG';
-my $REGEXP = qr/Ti.+ari.+ka/i;	# FIXME try i czs Tièarièka
+my $ELEKTRA_DP = shift;
+my $ELEKTRA_LOC = shift;
+my $REGEXP = shift;
+
+if (!defined($ELEKTRA_DP) or !defined($ELEKTRA_LOC) or !defined($REGEXP)) {
+    say STDERR "Usage: $0 <ELEKTRA_PODRUCJE> <ELEKTRA_POGON> <REGEXP>";
+    say STDERR "for example: $0 zagreb ZG 'Savska'";
+    exit 1;
+}
 
 # no user configurable parts below
 
@@ -41,7 +48,7 @@ foreach my $dan (1..6) {
 
     foreach my $node (@sve) {
         my $lokacije_raw = $node->as_HTML;
-        if ($lokacije_raw =~ $REGEXP) {
+        if ($lokacije_raw =~ m{$REGEXP}i) {
             say "$lokacije_raw <br> ($datum)";
         }
     }
