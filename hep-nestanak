@@ -33,12 +33,12 @@ foreach my $dan (0..6) {
     my ($sec,$min,$hour,$mday,$mon,$year,$wday,$yday,$isdst) = localtime(time + $dan*24*60*60);
     my $datum = sprintf "%02d.%02d.%04d", $mday, $mon, $year+1900;
     #print "dan=$dan, datum=$datum\n";
-    
+
     $mech->get( $BASEURL . '&datum=' . $datum );
     my $res = $mech->res();
     my $content = $res->decoded_content;
-    #my $content = do { local(@ARGV, $/) = 'main.html'; <> };	# DEBUG only
-     
+    #my $content = do { local $/; open my $fh, '<', 'main.html'; <$fh> };	# DEBUG ONLY
+
     my $tree= HTML::TreeBuilder::XPath->new;
     $tree->parse_content($content);
 
