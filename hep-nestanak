@@ -49,9 +49,9 @@ foreach my $dan (0..6) {
          my $lokacije_raw = $node->as_HTML;
          if ($saveit) {		# once we find our "class=mjesto", also collect following "class=vrijeme" and "class=clear" before marking next entry
              $ret .= $lokacije_raw;
-             if ($lokacije_raw =~ /class="clear"/i) {
+             if ($lokacije_raw =~ m{class="clear"}i) {
                  $saveit = 0;
-                 $ret .= "<div class=datum>$datum</div><hr>\n\n";
+                 $ret .= "\n<div class=datum>$datum</div><hr>\n\n";
              }
              next;
          }
